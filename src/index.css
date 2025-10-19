@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----- design tokens (light) ----- */
+@layer base {
+  :root{
+    --bg: 255 255 255;
+    --surface: 248 250 252;           /* slate-50 */
+    --surface-100: 241 245 249;       /* slate-100 */
+    --surface-200: 226 232 240;       /* slate-200 */
+    --text: 15 23 42;                 /* slate-900 */
+    --text-mute: 100 116 139;         /* slate-500 */
+    --primary: 37 99 235;             /* blue-600 */
+    --primary-700: 29 78 216;         /* blue-700 */
+    --ring: 59 130 246;               /* blue-500 */
+    --border: 226 232 240;
+    --green: 22 163 74;               /* green-600 */
+  }
+  html, body, #root { height: 100%; }
+  body { @apply bg-white text-[color:rgb(var(--text))]; }
+}
+
+/* ----- reusable bits ----- */
+@layer components {
+  .container { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .muted { color: rgb(var(--text-mute)); }
+  .h1 { @apply text-4xl sm:text-5xl font-black leading-tight; }
+  .h2 { @apply text-2xl sm:text-3xl font-extrabold; }
+
+  .card { @apply rounded-2xl border border-[rgb(var(--border))] bg-white shadow-sm; }
+  .shadow-card { box-shadow: 0 10px 30px rgba(2,8,23,0.06); }
+
+  .btn { @apply inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--ring))]; }
+  .btn-primary { @apply text-white bg-[rgb(var(--primary))] hover:bg-[rgb(var(--primary-700))]; }
+  .btn-ghost { @apply text-[rgb(var(--text))] bg-white border border-[rgb(var(--border))] hover:bg-[rgb(var(--surface-100))]; }
+  .btn-link { @apply text-[rgb(var(--primary))] underline underline-offset-4; }
+
+  .tag { @apply inline-flex items-center gap-1 px-2 py-1 text-xs rounded-lg border border-[rgb(var(--border))] bg-[rgb(var(--surface))]; }
+  .badge-green { @apply inline-flex items-center gap-1 px-2 py-1 text-[10px] font-semibold rounded-full bg-green-50 text-green-700; }
+
+  .surface { background-color: rgb(var(--surface)); }
+  .surface-100 { background-color: rgb(var(--surface-100)); }
+  .surface-200 { background-color: rgb(var(--surface-200)); }
+  .border { border-color: rgb(var(--border)); }
+}
+
+/* keep scrolling on the whole page */
+html { overflow-y: auto; }
